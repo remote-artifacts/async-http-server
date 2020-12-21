@@ -1,22 +1,3 @@
-# async-http-server
-A very simple and fast http server focused on embedded devices
-
-![Tests](https://github.com/remote-artifacts/async-http-server/workflows/test/badge.svg)
-
-# WHY
-I wanted a really fast and light web server. Something that can runs on
-things like `esp32`. There was other solutions out there but all are very slow.
-I need something that responds in less than 1 second.
-
-# Features
-* Fully async: It uses asyncio so it can handles a lot of requests concurrently but consuming a few resources
-* Simple: It just does one thing. No fancy or cool features, just handling http connections as much raw as possible
-* Easy to use: You only need your routes and your functions that generate your content
-* Non blocking: You can do your stuff in your microcontroller while the server is running
-* Static files: Static files like HTML or CSS can be served just by putting them in the `www` directory
-
-# Example
-```
 import async_http_server
 
 
@@ -55,7 +36,3 @@ loop = async_http_server.asyncio.get_event_loop()
 loop.create_task(async_http_server.asyncio.start_server(async_http_server.handle_client, '0.0.0.0', 8080))
 print("Listening port: 8080")
 loop.run_forever()
-```
-
-# TODO
-* Url variables support (like http://host/:led/status)

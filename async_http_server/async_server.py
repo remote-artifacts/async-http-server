@@ -65,7 +65,7 @@ async def handle_client(reader, writer):
             with open(file_path, "r") as f:
                 response = f.read()
             code = "200"
-        except FileNotFoundError:
+        except Exception:
             code = "404"
             response = {"error": "Not found"}
 
